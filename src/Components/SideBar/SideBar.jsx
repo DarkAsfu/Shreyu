@@ -36,7 +36,7 @@ const SideBar = () => {
         <div className="drawer md:drawer-open">
             {/* Drawer content */}
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content dark:bg-[#150A09] bg-[#f2f2f2] pt-2">
+            <div className="drawer-content dark:bg-[#222831] bg-[#f2f2f2] pt-2">
                 {/* Hamburger icon for mobile */}
                 <label htmlFor="my-drawer-2" className="md:hidden">
                     <img onClick={showSideBar} className={`w-10 m-2`} src={humberger} alt="" />
@@ -47,7 +47,7 @@ const SideBar = () => {
             {/* Sidebar */}
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className={`menu ${sidebarWidth} w-[264px] min-h-full bg-[#fff] dark:bg-[#2E1619] text-base-content  space-y-10`}>
+                <ul className={`menu ${sidebarWidth} w-[264px] min-h-full bg-[#fff] dark:bg-[#000] text-base-content  space-y-10`}>
                     <div className="flex justify-between gap-8 mx-auto mt-2">
                         {changeLogo ?
                             <div className="flex items-center gap-4 text-[24px] font-bold">

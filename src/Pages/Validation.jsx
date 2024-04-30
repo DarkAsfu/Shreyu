@@ -1,6 +1,6 @@
 const Validation = () => {
     return (
-        <div>
+        <div className="text-white">
             validation
         </div>
     );
