@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Components/DashboardHome/DashboardHome";
 import AllEmployee from "../Pages/AllEmployee";
+import CreateEmployee from "../Pages/CreateEmployee";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/createEmployee",
-                element: <h2>Create Employee</h2>
+                element: <CreateEmployee/>
             }
         ]
     },

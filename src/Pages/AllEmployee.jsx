@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const AllEmployee = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -167,7 +167,7 @@ const AllEmployee = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto border px-10 py-10'>
+        <div className='w-11/12 mx-auto border bg-white px-10 py-10'>
             <div className='flex items-center gap-3'>
                 <h1>Search: </h1>
                 <input
