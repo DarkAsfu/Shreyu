@@ -3,6 +3,7 @@ import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Components/DashboardHome/DashboardHome";
 import AllEmployee from "../Pages/AllEmployee";
 import CreateEmployee from "../Pages/CreateEmployee";
+import Validation from "../Pages/Validation";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
             {
                 path: "/createEmployee",
                 element: <CreateEmployee/>
+            },
+            {
+                path: "/updateEmployee",
+                element: <CreateEmployee/>
+            },
+            {
+                path: "/employeeValidation",
+                element: <Validation/>
             }
         ]
     },

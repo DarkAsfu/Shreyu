@@ -78,10 +78,10 @@ const SideBar = () => {
                         </Link>
                     </p>
                     <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <a style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}}><IoCreate className="text-[32px]" /><span className={`${hideText}`}>Update Employee</span></a>
+                        <Link to="/updateEmployee" style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}} className={isActiveLink("/updateEmployee") ? "text-[#5369F8]" : ""}><IoCreate className="text-[32px]" /><span className={`${hideText}`}>Update Employee</span></Link>
                     </p>
                     <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <a style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}}><FaHistory className="text-[32px]" /><span className={`${hideText}`}>User Validation</span></a>
+                        <Link to="/employeeValidation" style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}} className={isActiveLink("/employeeValidation") ? "text-[#5369F8]" : ""}><FaHistory className="text-[32px]" /><span className={`${hideText}`}>User Validation</span></Link>
                     </p>
                     <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
                         <a style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}}><IoSettingsOutline className="text-[32px]" /><span className={`${hideText}`}>Settings</span></a>
