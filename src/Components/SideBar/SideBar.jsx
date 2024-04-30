@@ -47,7 +47,7 @@ const SideBar = () => {
             {/* Sidebar */}
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className={`menu ${sidebarWidth} w-[264px] min-h-full bg-[#fff] dark:bg-[#2E1619] text-base-content list-none list`}>
+                <ul className={`menu ${sidebarWidth} w-[264px] min-h-full bg-[#fff] dark:bg-[#2E1619] text-base-content  space-y-10`}>
                     <div className="flex justify-between gap-8 mx-auto mt-2">
                         {changeLogo ?
                             <div className="flex items-center gap-4 text-[24px] font-bold">
@@ -59,33 +59,33 @@ const SideBar = () => {
                         <img onClick={removeSideBar} className={`w-[40px] ${hideText}`} src="https://i.ibb.co/sm3WYmD/Icon-Side-Arrow-round.png" alt="" />
                     </div>
                     {/* Sidebar content */}
-                    <p className={`text-[16px] dark:text-white mt-[60px] font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <Link to="/" className={isActiveLink("/") ? "text-[#5369F8]" : ""}>
+                    <p className={`text-[16px]  dark:text-white mt-[60px] font-mono ${changeLogo ? '' : 'mx-auto'}`}>
+                        <Link to="/" style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}} className={isActiveLink("/") ? "text-[#5369F8]" : "" }>
                             <GoHome className="text-[32px]" />
                             <span className={`${hideText}`}>Home</span>
                         </Link>
                     </p>
                     <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <Link to="/allemployee" className={isActiveLink("/allemployee") ? "text-[#5369F8]" : ""}>
+                        <Link to="/allemployee" style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}} className={isActiveLink("/allemployee") ? "text-[#5369F8]" : ""}>
                             <GoPerson className="text-[32px]" />
                             <span className={`${hideText}`}>All Employee</span>
                         </Link>
                     </p>
                     <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <Link to="/createEmployee" className={isActiveLink("/createEmployee") ? "text-[#5369F8]" : ""}>
+                        <Link to="/createEmployee" style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}} className={isActiveLink("/createEmployee") ? "text-[#5369F8]" : ""}>
                             <IoPersonAddOutline className="text-[32px]" />
                             <span className={`${hideText}`}>Create Employee</span>
                         </Link>
                     </p>
-                    <li className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <a><IoCreate className="text-[32px]" /><span className={`${hideText}`}>Update Employee</span></a>
-                    </li>
-                    <li className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <a><FaHistory className="text-[32px]" /><span className={`${hideText}`}>User Validation</span></a>
-                    </li>
-                    <li className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
-                        <a><IoSettingsOutline className="text-[32px]" /><span className={`${hideText}`}>Settings</span></a>
-                    </li>
+                    <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
+                        <a style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}}><IoCreate className="text-[32px]" /><span className={`${hideText}`}>Update Employee</span></a>
+                    </p>
+                    <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
+                        <a style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}}><FaHistory className="text-[32px]" /><span className={`${hideText}`}>User Validation</span></a>
+                    </p>
+                    <p className={`text-[16px] dark:text-white mt-5 font-mono ${changeLogo ? '' : 'mx-auto'}`}>
+                        <a style={{display: "flex", alignItems: "center", gap: 7, padding: "0px 20px"}}><IoSettingsOutline className="text-[32px]" /><span className={`${hideText}`}>Settings</span></a>
+                    </p>
                 </ul>
             </div>
         </div>
