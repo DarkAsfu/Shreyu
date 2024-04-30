@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Components/DashboardHome/DashboardHome";
+import AllEmployee from "../Pages/AllEmployee";
 
 const router = createBrowserRouter([
     {
@@ -13,11 +14,11 @@ const router = createBrowserRouter([
             },
             {   
                 path: "/allemployee",
-                element: <h1>here</h1>
+                element: <AllEmployee/>
             },
             {
                 path: "/createEmployee",
-                element: <h2>Cre</h2>
+                element: <h2>Create Employee</h2>
             }
         ]
     },

@@ -1,8 +1,7 @@
 const DashboardHome = () => {
     return (
         <div className="">
-            {/* <Navbar /> */}
-            dkf
+            Home
         </div>
     );
 };

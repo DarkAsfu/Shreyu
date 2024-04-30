@@ -1,0 +1,142 @@
+const employees = [
+    {
+      "employee_id": 1,
+      "name": "John Smith",
+      "phone_number": "555-123-4567",
+      "age": 32,
+      "company": "Acme Corporation"
+    },
+    {
+      "employee_id": 2,
+      "name": "Emily Johnson",
+      "phone_number": "555-234-5678",
+      "age": 28,
+      "company": "Global Solutions Inc."
+    },
+    {
+      "employee_id": 3,
+      "name": "Michael Davis",
+      "phone_number": "555-345-6789",
+      "age": 40,
+      "company": "Tech Innovations Ltd."
+    },
+    {
+      "employee_id": 4,
+      "name": "Sarah Brown",
+      "phone_number": "555-456-7890",
+      "age": 35,
+      "company": "Visionary Enterprises"
+    },
+    {
+      "employee_id": 5,
+      "name": "David Wilson",
+      "phone_number": "555-567-8901",
+      "age": 45,
+      "company": "Nexus Industries"
+    },
+    {
+      "employee_id": 6,
+      "name": "Jessica Lee",
+      "phone_number": "555-678-9012",
+      "age": 29,
+      "company": "Apex Innovations"
+    },
+    {
+      "employee_id": 7,
+      "name": "Matthew Taylor",
+      "phone_number": "555-789-0123",
+      "age": 38,
+      "company": "Quantum Dynamics"
+    },
+    {
+      "employee_id": 8,
+      "name": "Jennifer Martinez",
+      "phone_number": "555-890-1234",
+      "age": 33,
+      "company": "Synergy Solutions"
+    },
+    {
+      "employee_id": 9,
+      "name": "Christopher Anderson",
+      "phone_number": "555-901-2345",
+      "age": 41,
+      "company": "InnovateTech Inc."
+    },
+    {
+      "employee_id": 10,
+      "name": "Amanda Clark",
+      "phone_number": "555-012-3456",
+      "age": 27,
+      "company": "Pinnacle Enterprises"
+    },
+    {
+      "employee_id": 11,
+      "name": "Kevin Wright",
+      "phone_number": "555-123-4567",
+      "age": 36,
+      "company": "Dynamic Solutions"
+    },
+    {
+      "employee_id": 12,
+      "name": "Stephanie Hall",
+      "phone_number": "555-234-5678",
+      "age": 31,
+      "company": "Endeavor Innovations"
+    },
+    {
+      "employee_id": 13,
+      "name": "Daniel Rodriguez",
+      "phone_number": "555-345-6789",
+      "age": 39,
+      "company": "Synergy Solutions"
+    },
+    {
+      "employee_id": 14,
+      "name": "Melissa Baker",
+      "phone_number": "555-456-7890",
+      "age": 34,
+      "company": "NexGen Technologies"
+    },
+    {
+      "employee_id": 15,
+      "name": "Ryan Murphy",
+      "phone_number": "555-567-8901",
+      "age": 30,
+      "company": "TechWave Innovations"
+    },
+    {
+      "employee_id": 16,
+      "name": "Laura Garcia",
+      "phone_number": "555-678-9012",
+      "age": 37,
+      "company": "InnovateTech Inc."
+    },
+    {
+      "employee_id": 17,
+      "name": "Mark Turner",
+      "phone_number": "555-789-0123",
+      "age": 42,
+      "company": "Nexus Industries"
+    },
+    {
+      "employee_id": 18,
+      "name": "Karen White",
+      "phone_number": "555-890-1234",
+      "age": 26,
+      "company": "Visionary Enterprises"
+    },
+    {
+      "employee_id": 19,
+      "name": "Justin Hall",
+      "phone_number": "555-901-2345",
+      "age": 43,
+      "company": "Dynamic Solutions"
+    },
+    {
+      "employee_id": 20,
+      "name": "Linda Adams",
+      "phone_number": "555-012-3456",
+      "age": 25,
+      "company": "Endeavor Innovations"
+    }
+  ]
