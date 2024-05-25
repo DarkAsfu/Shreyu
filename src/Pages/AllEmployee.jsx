@@ -1,250 +1,95 @@
+import useAllEmployees from '../hooks/useAllEmployees';
 import { useState } from 'react';
-
+import { ImCross } from "react-icons/im";
 const AllEmployee = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [currentPage, setCurrentPage] = useState(1);
-    const [employeesPerPage, setEmployeesPerPage] = useState(5);
-
-    const employees = [
-        {
-            "employee_id": 1,
-            "name": "John Smith",
-            "phone_number": "555-123-4567",
-            "age": 32,
-            "company": "Acme Corporation"
-        },
-        {
-            "employee_id": 2,
-            "name": "Emily Johnson",
-            "phone_number": "555-234-5678",
-            "age": 28,
-            "company": "Global Solutions Inc."
-        },
-        {
-            "employee_id": 3,
-            "name": "Michael Davis",
-            "phone_number": "555-345-6789",
-            "age": 40,
-            "company": "Tech Innovations Ltd."
-        },
-        {
-            "employee_id": 4,
-            "name": "Sarah Brown",
-            "phone_number": "555-456-7890",
-            "age": 35,
-            "company": "Visionary Enterprises"
-        },
-        {
-            "employee_id": 5,
-            "name": "David Wilson",
-            "phone_number": "555-567-8901",
-            "age": 45,
-            "company": "Nexus Industries"
-        },
-        {
-            "employee_id": 6,
-            "name": "Jessica Lee",
-            "phone_number": "555-678-9012",
-            "age": 29,
-            "company": "Apex Innovations"
-        },
-        {
-            "employee_id": 7,
-            "name": "Matthew Taylor",
-            "phone_number": "555-789-0123",
-            "age": 38,
-            "company": "Quantum Dynamics"
-        },
-        {
-            "employee_id": 8,
-            "name": "Jennifer Martinez",
-            "phone_number": "555-890-1234",
-            "age": 33,
-            "company": "Synergy Solutions"
-        },
-        {
-            "employee_id": 9,
-            "name": "Christopher Anderson",
-            "phone_number": "555-901-2345",
-            "age": 41,
-            "company": "InnovateTech Inc."
-        },
-        {
-            "employee_id": 10,
-            "name": "Amanda Clark",
-            "phone_number": "555-012-3456",
-            "age": 27,
-            "company": "Pinnacle Enterprises"
-        },
-        {
-            "employee_id": 11,
-            "name": "Kevin Wright",
-            "phone_number": "555-123-4567",
-            "age": 36,
-            "company": "Dynamic Solutions"
-        },
-        {
-            "employee_id": 12,
-            "name": "Stephanie Hall",
-            "phone_number": "555-234-5678",
-            "age": 31,
-            "company": "Endeavor Innovations"
-        },
-        {
-            "employee_id": 13,
-            "name": "Daniel Rodriguez",
-            "phone_number": "555-345-6789",
-            "age": 39,
-            "company": "Synergy Solutions"
-        },
-        {
-            "employee_id": 14,
-            "name": "Melissa Baker",
-            "phone_number": "555-456-7890",
-            "age": 34,
-            "company": "NexGen Technologies"
-        },
-        {
-            "employee_id": 15,
-            "name": "Ryan Murphy",
-            "phone_number": "555-567-8901",
-            "age": 30,
-            "company": "TechWave Innovations"
-        },
-        {
-            "employee_id": 16,
-            "name": "Laura Garcia",
-            "phone_number": "555-678-9012",
-            "age": 37,
-            "company": "InnovateTech Inc."
-        },
-        {
-            "employee_id": 17,
-            "name": "Mark Turner",
-            "phone_number": "555-789-0123",
-            "age": 42,
-            "company": "Nexus Industries"
-        },
-        {
-            "employee_id": 18,
-            "name": "Karen White",
-            "phone_number": "555-890-1234",
-            "age": 26,
-            "company": "Visionary Enterprises"
-        },
-        {
-            "employee_id": 19,
-            "name": "Justin Hall",
-            "phone_number": "555-901-2345",
-            "age": 43,
-            "company": "Dynamic Solutions"
-        },
-        {
-            "employee_id": 20,
-            "name": "Linda Adams",
-            "phone_number": "555-012-3456",
-            "age": 25,
-            "company": "Endeavor Innovations"
-        }
-    ]
-
-    // Update filtered employees when search term or current page changes
-    const filteredEmployees = employees.filter(employee =>
-        employee.name.toLowerCase().includes(searchTerm.toLowerCase())
-    ).slice((currentPage - 1) * employeesPerPage, currentPage * employeesPerPage);
-
-    // Change page
-    const paginate = pageNumber => {
-        if (pageNumber >= 1 && pageNumber <= Math.ceil(filteredEmployees.length / employeesPerPage)) {
-            setCurrentPage(pageNumber);
-        }
-    };
-
-    // Generate page numbers array
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(employees.length / employeesPerPage); i++) {
-        pageNumbers.push(i);
+    const [allemployees, loading, refetch] = useAllEmployees();
+    const [sEmployee, setSEmployee] = useState();
+    function employeeDetails(id) {
+        document.getElementById('employee_details').showModal();
+        fetch(`http://localhost:5000/employees/${id}`)
+            .then(res => res.json())
+            .then(data => setSEmployee(data))
     }
-
     return (
-        <div className='w-11/12 mx-auto border bg-white px-10 py-10'>
-            <div className='flex items-center gap-3'>
-                <h1>Search: </h1>
-                <input
-                    className='border py-2 rounded-sm px-2'
-                    type="text"
-                    placeholder="Search by name"
-                    value={searchTerm}
-                    onChange={e => setSearchTerm(e.target.value)}
-                />
-            </div>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th className="text-bold text-[14px] text-[#4B4B5A]">Id</th>
-                            <th className="text-bold text-[14px] text-[#4B4B5A]">Name</th>
-                            <th className="text-bold text-[14px] text-[#4B4B5A]">Phone Number</th>
-                            <th className="text-bold text-[14px] text-[#4B4B5A]">Age</th>
-                            <th className="text-bold text-[14px] text-[#4B4B5A]">Company</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredEmployees.map(employee => (
-                            <tr key={employee.employee_id}>
-                                <td>{employee.employee_id}</td>
-                                <td>{employee.name}</td>
-                                <td>{employee.phone_number}</td>
-                                <td>{employee.age}</td>
-                                <td>{employee.company}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <div className='md:flex items-center justify-between mt-10'>
-                <div className='md:flex items-center gap-10'>
-                    <div className='flex'>
-                        <h1 className='font-bold'>Display: </h1>
-                        <select
-                            value={employeesPerPage}
-                            onChange={e => {
-                                setEmployeesPerPage(parseInt(e.target.value));
-                                setCurrentPage(1);
-                            }}
-                        >
-                            <option value={5}>5 per page</option>
-                            <option value={10}>10 per page</option>
-                            <option value={20}>20 per page</option>
-                        </select>
-                    </div>
-                    {/* Go to specific page */}
-                    <div className='flex items-center gap-2'>
-                    <h1 className='font-bold'>Go to page: </h1>
-                        <input
-                            className='border p-1 rounded-md'
-                            type="number"
-                            min={1}
-                            max={Math.ceil(filteredEmployees.length / employeesPerPage)}
-                            value={currentPage}
-                            onChange={e => setCurrentPage(parseInt(e.target.value))}
-                        />
+        <div>
+            <div className="md:w-10/12 w-[95%] mx-auto bg-white dark:bg-[#080808] shadow-lg rounded-md border border-gray-200 dark:border-[#222]">
+                <div className="p-3">
+                    <div className="overflow-x-auto">
+                        <table className="table-auto w-full">
+                            <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                <tr>
+                                    <th className="p-2 whitespace-nowrap">
+                                        <div className="font-semibold text-left">Name</div>
+                                    </th>
+                                    <th className="p-2 whitespace-nowrap">
+                                        <div className="font-semibold text-left">Email</div>
+                                    </th>
+                                    <th className="p-2 whitespace-nowrap">
+                                        <div className="font-semibold text-left">Phone</div>
+                                    </th>
+                                    <th className="p-2 whitespace-nowrap">
+                                        <div className="font-semibold text-left">Hire Date</div>
+                                    </th>
+                                    <th className="p-2 whitespace-nowrap">
+                                        <div className="font-semibold text-center">Salary</div>
+                                    </th>
+                                    <th className="p-2 whitespace-nowrap">
+                                        <div className="font-semibold text-center">Details</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-sm divide-y divide-gray-100 dark:divide-[#222]">
+                                {loading ? <img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="" /> :
+                                    allemployees.map(e => (
+                                        <tr key={e.employee_id}>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="text-left text-[16px] text-black dark:text-white">{e.first_name} {e.last_name}</div>
+                                            </td>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="text-left text-[16px] text-black dark:text-white">{e?.email}</div>
+                                            </td>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="">
+                                                    <div className="text-gray-800 dark:text-[#f8f8f8]">{e?.phone_number}</div>
+                                                </div>
+                                            </td>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="text-left text-[16px]  text-gray-800 dark:text-white">{e?.hire_date.slice(0, 10)}</div>
+                                            </td>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="text-center text-[16px]  text-gray-800 dark:text-white">{e?.salary}</div>
+                                            </td>
+
+                                            <td className="p-2 whitespace-nowrap">{/* The button to open modal */}
+                                                <button className='text-blue-500 bg-blue-100 p-2 rounded-lg' onClick={() => employeeDetails(e.employee_id)}>Details</button>
+                                                <dialog id="employee_details" className="modal modal-bottom sm:modal-middle">
+                                                    <div className="modal-box">
+                                                        <div className="modal-action -mb-12 mr-4">
+                                                            <form method="dialog">
+                                                                <button className="text-[red] text-[16px]"><ImCross /></button>
+                                                            </form>
+                                                        </div>
+                                                        <div className="bg-white shadow-md rounded-lg p-10 ">
+                                                            <h2 className="text-xl font-semibold mb-4">{sEmployee?.[0]?.first_name} {sEmployee?.[0]?.last_name}</h2>
+                                                            <p className="text-gray-600 mb-2"><span className='font-bold'>Email:</span> {sEmployee?.[0]?.email}</p>
+                                                            <p className="text-gray-600 mb-2"><span className='font-bold'>Phone:</span> {sEmployee?.[0].phone_number}</p>
+                                                            <p className="text-gray-600 mb-2"><span className='font-bold'>Hire Date:</span> {sEmployee?.[0]?.hire_date.slice(0, 10)}</p>
+                                                            <p className="text-gray-600 mb-2"><span className='font-bold'>Salary:</span> ${sEmployee?.[0]?.salary}</p>
+                                                            <p className="text-gray-600 mb-2"><span className='font-bold'>Job Title:</span> {sEmployee?.[0]?.job_title}</p>
+                                                            <p className="text-gray-600 mb-2"><span className='font-bold'>Department:</span> {sEmployee?.[0]?.department_name}</p>
+                                                        </div>
+
+                                                    </div>
+                                                </dialog>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div>
-                    {/* Previous Page Button */}
-                    <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
-
-                    {/* Page Numbers */}
-                    {pageNumbers.map(pageNumber => (
-                        <button key={pageNumber} onClick={() => paginate(pageNumber)}>{pageNumber}</button>
-                    ))}
-
-                    {/* Next Page Button */}
-                    <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(filteredEmployees.length / employeesPerPage)}>Next</button>
-                </div>
             </div>
-
         </div>
     );
 };

@@ -2,8 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Components/DashboardHome/DashboardHome";
 import AllEmployee from "../Pages/AllEmployee";
+import SingleEmployee from "../Pages/SingleEmployee";
 import CreateEmployee from "../Pages/CreateEmployee";
-import Validation from "../Pages/Validation";
+// import Validation from "../Pages/Validation";
 
 const router = createBrowserRouter([
     {
@@ -19,17 +20,22 @@ const router = createBrowserRouter([
                 element: <AllEmployee/>
             },
             {
+                path: "/employee/:id",
+                element: <SingleEmployee/>,
+                loader: ({params}) => fetch(`http://localhost:5000/employees/${params.id}`)
+            },
+            {
                 path: "/createEmployee",
                 element: <CreateEmployee/>
-            },
-            {
-                path: "/updateEmployee",
-                element: <CreateEmployee/>
-            },
-            {
-                path: "/employeeValidation",
-                element: <Validation/>
             }
+            // {
+            //     path: "/updateEmployee",
+            //     element: <CreateEmployee/>
+            // },
+            // {
+            //     path: "/employeeValidation",
+            //     element: <Validation/>
+            // }
         ]
     },
 ]);
